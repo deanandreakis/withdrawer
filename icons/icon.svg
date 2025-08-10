@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- LinkedIn blue background -->
+  <rect width="128" height="128" fill="#0073b1" rx="16"/>
+  
+  <!-- White withdrawal symbol (arrow pointing left with X) -->
+  <g fill="white">
+    <!-- Arrow pointing left -->
+    <path d="M40 64 L20 44 L28 36 L40 48 L72 48 L72 56 L40 56 L52 68 L44 76 Z"/>
+    
+    <!-- X symbol -->
+    <path d="M84 44 L92 36 L108 52 L116 44 L124 52 L108 68 L124 84 L116 92 L100 76 L92 84 L84 76 L100 60 Z" transform="scale(0.6) translate(40, 40)"/>
+    
+    <!-- Connection dots -->
+    <circle cx="76" cy="32" r="4"/>
+    <circle cx="96" cy="32" r="4"/>
+    <circle cx="76" cy="96" r="4"/>
+    <circle cx="96" cy="96" r="4"/>
+  </g>
+</svg>

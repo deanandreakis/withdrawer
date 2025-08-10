@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 350px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #0073b1;
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        
+        .header p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .status-card {
+            background: #f3f6f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .status-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .status-label {
+            color: #666;
+        }
+        
+        .status-value {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .instructions h3 {
+            margin: 0 0 10px 0;
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #856404;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background: #0073b1;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #005885;
+        }
+        
+        .btn-secondary {
+            background: #e1e9ee;
+            color: #0073b1;
+        }
+        
+        .btn-secondary:hover {
+            background: #d0d9e2;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LinkedIn Invitation Withdrawer</h1>
+        <p>Safely manage your sent connection invitations</p>
+    </div>
+    
+    <div id="not-on-page" class="instructions">
+        <h3>How to Use:</h3>
+        <ol>
+            <li>Go to <strong>My Network</strong> on LinkedIn</li>
+            <li>Click <strong>Manage invitations</strong></li>
+            <li>Select the <strong>Sent</strong> tab</li>
+            <li>The withdrawal controls will appear automatically</li>
+        </ol>
+    </div>
+    
+    <div id="on-page" class="hidden">
+        <div class="status-card">
+            <div class="status-item">
+                <span class="status-label">Page Status:</span>
+                <span class="status-value" id="page-status">Ready</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Invitations Found:</span>
+                <span class="status-value" id="invitations-count">Scanning...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Withdrawn:</span>
+                <span class="status-value" id="withdrawn-count">0</span>
+            </div>
+        </div>
+        
+        <div class="success">
+            ✓ You're on the correct page! The withdrawal controls are now active.
+        </div>
+    </div>
+    
+    <div class="action-buttons">
+        <a href="https://www.linkedin.com/mynetwork/invitation-manager/sent/" target="_blank" class="btn btn-primary">
+            Go to Sent Invitations
+        </a>
+        <button class="btn btn-secondary" id="refresh-status">
+            Refresh Status
+        </button>
+    </div>
+    
+    <div class="warning">
+        <strong>⚠️ Important:</strong> This extension withdraws invitations with a 2-second delay to avoid triggering LinkedIn's anti-spam measures. Use responsibly.
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
